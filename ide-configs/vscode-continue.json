@@ -1,0 +1,108 @@
+{
+  "models": [
+    {
+      "title": "Qwen3 Coder",
+      "provider": "ollama",
+      "model": "qwen3-coder",
+      "apiBase": "http://localhost:11434",
+      "description": "Large context window, strong code understanding"
+    },
+    {
+      "title": "DeepSeek Coder",
+      "provider": "ollama",
+      "model": "deepseek-coder:6.7b",
+      "apiBase": "http://localhost:11434",
+      "description": "Lightweight, fast on CPU"
+    },
+    {
+      "title": "CodeLlama",
+      "provider": "ollama",
+      "model": "codellama:13b",
+      "apiBase": "http://localhost:11434",
+      "description": "Classic coding model"
+    },
+    {
+      "title": "GPT-OSS",
+      "provider": "ollama",
+      "model": "gpt-oss:20b",
+      "apiBase": "http://localhost:11434",
+      "description": "Advanced coding challenges"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "DeepSeek Coder",
+    "provider": "ollama",
+    "model": "deepseek-coder:6.7b",
+    "apiBase": "http://localhost:11434"
+  },
+  "chatModel": {
+    "title": "Qwen3 Coder",
+    "provider": "ollama",
+    "model": "qwen3-coder",
+    "apiBase": "http://localhost:11434"
+  },
+  "contextLength": {
+    "default": 4096,
+    "qwen3-coder": 32768,
+    "deepseek-coder:6.7b": 4096,
+    "codellama:13b": 4096,
+    "gpt-oss:20b": 8192
+  },
+  "customCommands": [
+    {
+      "name": "Explain Code",
+      "description": "Explain what the selected code does",
+      "prompt": "Explain this code in detail, including:\n1. What it does\n2. How it works\n3. Key concepts involved\n4. Potential improvements\n\nCode: {input}"
+    },
+    {
+      "name": "Refactor Code",
+      "description": "Refactor and improve the selected code",
+      "prompt": "Refactor this code to improve:\n1. Readability\n2. Performance\n3. Maintainability\n4. Best practices\n\nProvide the refactored code with explanations.\n\nCode: {input}"
+    },
+    {
+      "name": "Add Tests",
+      "description": "Add unit tests for the selected code",
+      "prompt": "Write comprehensive unit tests for this code. Include:\n1. Happy path tests\n2. Edge cases\n3. Error handling\n4. Mock dependencies if needed\n\nCode: {input}"
+    },
+    {
+      "name": "Fix Bugs",
+      "description": "Identify and fix bugs in the selected code",
+      "prompt": "Analyze this code for potential bugs and issues. Provide:\n1. List of identified problems\n2. Root cause analysis\n3. Fixed code with explanations\n\nCode: {input}"
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "edit",
+      "description": "Edit selected code"
+    },
+    {
+      "name": "comment",
+      "description": "Add comments to explain code"
+    },
+    {
+      "name": "optimize",
+      "description": "Optimize code performance"
+    },
+    {
+      "name": "debug",
+      "description": "Debug and fix issues"
+    }
+  ],
+  "systemPrompt": "You are a helpful AI coding assistant. You provide clear, accurate, and well-explained code solutions. Always consider best practices, security, and maintainability. When providing code, include relevant explanations and context.",
+  "temperature": 0.7,
+  "maxTokens": 4096,
+  "enableDocs": true,
+  "enableBrowser": false,
+  "enableFileSystem": true,
+  "enableTerminal": true,
+  "workspace": {
+    "allowedFileTypes": [
+      ".js", ".ts", ".jsx", ".tsx", ".py", ".java", ".cpp", ".c", ".h", ".cs", 
+      ".go", ".rs", ".php", ".rb", ".swift", ".kt", ".scala", ".sh", ".sql", 
+      ".html", ".css", ".json", ".yaml", ".yml", ".md", ".txt"
+    ],
+    "excludePatterns": [
+      "node_modules/**", ".git/**", "dist/**", "build/**", "*.log", "*.tmp"
+    ]
+  }
+}
